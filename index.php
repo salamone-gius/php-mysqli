@@ -7,7 +7,7 @@
     $conn = new mysqli(DB_SERVERNAME, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
     // eseguo un controllo sulla connessione
-    if($conn && $conn->connect_error) {
+    if ($conn && $conn->connect_error) {
         echo "Errore di connessione {$conn->connect_error}";
     };
 
@@ -17,16 +17,23 @@
     // passo la query $sql alla connessione $conn e salvo il risultato della query nella variable $result
     $result = $conn->query($sql);
 
-    // eseguo un controllo sulla risultato della query:
-    // SE $result E il numero di righe di $result è maggiore di 0...
+    // eseguo un controllo sul risultato della query:
+    // SE abbiamo un $result (la query è valida/corretta) E il numero di righe di $result è maggiore di 0 (abbiamo dei risultati)...
     if ($result && $result->num_rows > 0) {
-        // ...salvo il risultato di ogni riga della tabella risultante nella variabile $row sotto forma di array associativi (fetch_assoc())
-        // il nome della colonna è la chiave, il dato è il suo valore.
+        // ...salvo il risultato di ogni riga della tabella risultante nella variabile $row sotto forma di array associativi (fetch_assoc())...
+        // il nome della colonna è la chiave, il dato relativo è il suo valore.
         while ($row = $result->fetch_assoc()) {
             // stampo i dati della colonna 'name' dell'array '$row'
             echo "{$row['name']} <br>";
         }
-
+    // ...ALTRIMENTI SE abbiamo un $result (la query è valida/corretta) ma NON abbiamo risultati in $result...
+    } elseif ($result) {
+        // ...stampo un messaggio di warning...
+        echo "Non ci sono risultati";
+    // ...ALTRIMENTI...
+    } else {
+        // stampo un messaggio di errore.
+        echo "Errore nella query";
     }
 
 ?>
