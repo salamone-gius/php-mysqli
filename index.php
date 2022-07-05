@@ -9,6 +9,14 @@
     // eseguo un controllo sulla connessione
     if($conn && $conn->connect_error) {
         echo "Errore di connessione {$conn->connect_error}";
-    }
+    };
+
+    // salvo la query nella variabile $sql
+    $sql = "SELECT * FROM `departments`";
+
+    // passo la query $sql alla connessione $conn e salvo il risultato della query nella variable $result
+    $result = $conn->query($sql);
+
+    var_dump($result);
 
 ?>
