@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.img-box {
+    display: flex;
+    justify-content: center;
+}
+
+.img-box img {
+    width: 1200px;
+    margin: 20px auto;
+}
+
+.diagramma-er {
+    margin: 70px 0;
+}
+
+.questions-answers {
+    width: 80%;
+    margin: 0 auto;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    border: 1px solid goldenrod;
+    margin: 30px 0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+p {
+    margin: 15px 30px;
+}
+
+li img {
+    width: 100%;
+    border-radius: 10px;
+}

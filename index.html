@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DB University</title>
+        <link rel="stylesheet" href="./style/style.css">
+    </head>
+    <body>
+        <header>
+            <h1>DB - University</h1>
+        </header>
+        <main>
+            <section class="questions-answers">
+                <ul>
+                    <h2>Questions & answers (SELECT QUERIES)</h2>
+                    <li>
+                        <h3>1. Selezionare tutti gli studenti nati nel 1990 (160)</h3>
+                        <p> SELECT *<br>
+                            FROM `students`<br>
+                            WHERE `date_of_birth` BETWEEN '1990-01-01' AND '1990-12-31';<br>
+                        </p>
+                        <img src="./img/select_queries/a_1.png" alt="query_result">
+                    </li>
+                    <li>
+                        <h3>2. Selezionare tutti i corsi che valgono più di 10 crediti (479)</h3>
+                        <p> SELECT *<br>
+                            FROM `courses`<br>
+                            WHERE `cfu` > 10;<br>
+                        </p>
+                        <img src="./img/select_queries/a_2.png" alt="query_result">
+                    </li>
+                    <li>
+                        <h3>3. Selezionare tutti gli studenti che hanno più di 30 anni</h3>
+                        <p> SELECT *<br>
+                            FROM `students`<br>
+                            WHERE DATE_ADD(`date_of_birth`, INTERVAL 30 YEAR) < CURDATE();<br>
+                        </p>
+                        <img src="./img/select_queries/a_3.png" alt="query_result">
+                    </li>
+                    <li>
+                        <h3>4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286)</h3>
+                        <p> SELECT *<br>
+                            FROM `courses`<br>
+                            WHERE `year` = 1<br>
+                            AND `period` = 'I semestre';<br>
+                        </p>
+                        <img src="./img/select_queries/a_4.png" alt="query_result">
+                    </li>
+                    <li>
+                        <h3>5. Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del 20/06/2020 (21)</h3>
+                        <p> SELECT *<br>
+                            FROM `exams`<br>
+                            WHERE `date` = '2020-06-20'<br>
+                            AND TIMEDIFF(`hour`, "14:00:00") > 0;<br>
+                        </p>
+                        <img src="./img/select_queries/a_5.png" alt="query_result">
+                    </li>
+                    <li>
+                        <h3>6. Selezionare tutti i corsi di laurea magistrale (38)</h3>
+                        <p> SELECT *<br>
+                            FROM `degrees`<br>
+                            WHERE `level` = 'magistrale';<br>
+                        </p>
+                        <img src="./img/select_queries/a_6.png" alt="query_result">
+                    </li>
+                    <li>
+                        <h3>7. Da quanti dipartimenti è composta l'università? (12)</h3>
+                        <p> SELECT COUNT(`id`) AS `risposta_alla_domanda_7`<br>
+                            FROM `departments`;<br>
+                        </p>
+                        <img src="./img/select_queries/a_7.png" alt="query_result">
+                    </li>
+                    <li>
+                        <h3>8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)</h3>
+                        <p> SELECT COUNT(`id`) AS `risposta_alla_domanda_8`<br>
+                            FROM `teachers`<br>
+                            WHERE `phone` IS NULL;<br>
+                        </p>
+                        <img src="./img/select_queries/a_8.png" alt="query_result">
+                    </li>
+                </ul>
+            </section>
+            <section class="diagramma-er">
+                <h2>Diagramma ER</h2>
+                <div class="img-box">
+                    <img src="./img/db-university.png" alt="db-university">
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
