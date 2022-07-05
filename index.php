@@ -23,7 +23,8 @@
         // ...salvo il risultato di ogni riga della tabella risultante nella variabile $row sotto forma di array associativi (fetch_assoc())
         // il nome della colonna è la chiave, il dato è il suo valore.
         while ($row = $result->fetch_assoc()) {
-            var_dump(($row));
+            // stampo i dati della colonna 'name' dell'array '$row'
+            echo "{$row['name']} <br>";
         }
 
     }
