@@ -34,6 +34,9 @@
     } else {
         // stampo un messaggio di errore.
         echo "Errore nella query";
-    }
+    };
 
+    // chiudo la connessione
+    $conn->close();
+    
 ?>
