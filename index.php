@@ -11,8 +11,11 @@
         echo "Errore di connessione {$conn->connect_error}";
     };
 
-    // salvo la query nella variabile $sql
-    $sql = "SELECT * FROM `departments`";
+    // simulo che un utente mi passi un id dall'esterno
+    $id = $_GET['id'];
+
+    // salvo la query nella variabile $sql / aggiungo alla query l'informazione che mi passa l'utente
+    $sql = "SELECT * FROM `departments` WHERE `id` = {$id}";
 
     // passo la query $sql alla connessione $conn e salvo il risultato della query nella variable $result
     $result = $conn->query($sql);
@@ -38,5 +41,5 @@
 
     // chiudo la connessione
     $conn->close();
-    
+
 ?>
